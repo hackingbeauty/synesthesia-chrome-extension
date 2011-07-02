@@ -1,0 +1,22 @@
+* {
+  margin:0;
+  padding:0;
+}
+
+body {
+/*  border:1px solid #fea38e;
+*/  width:500px;
+  background:#000000;
+  color:white;
+  padding:5px;
+  font-size:100%;
+}
+
+h1 {
+  background: url('../img/header-logo.png') no-repeat;
+  display:block;
+  width:65px;
+  height:51px;
+  padding:6px 0 0 70px;
+  font-size:150%;
+}

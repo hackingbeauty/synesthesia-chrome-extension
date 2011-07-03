@@ -1,0 +1,76 @@
+$gold: #dfb42c;
+$dark_black: #040f00;
+$light_grey: #b1b0b0;
+$dark_grey: #5E5E5E;
+$warning: #cc3333;
+$success: #33cc33;
+$future_orange:#f96623;
+$future_dark_grey:#191919;
+$future_light_grey:#2e2e30;
+
+@mixin button {
+  @include rounded_corners;
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#FFD757), to(#FA2));
+  background: -moz-linear-gradient(top, #FFEC64, #FFB027);
+  border: 1px solid #FA2;
+  font-weight: bold;
+  cursor:pointer;
+  padding:5px 10px;
+  display:block;
+  color: $dark_black;
+  text-decoration:none;
+  text-align:center;
+}
+
+@mixin rounded_corners{
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+
+@font-face {
+	font-family: 'Orbitron';
+	src: url('../fonts/orbitron/orbitron-bold.eot');
+	src: url(//:) format('no404'), url('../fonts/orbitron/orbitron-bold.woff') format('woff'), url('../fonts/orbitron/orbitron-bold.ttf') format('truetype');
+}
+
+* {
+  margin:0;
+  padding:0;
+}
+
+body {
+  width:500px;
+  background:#000000;
+  color:white;
+  padding:5px;
+  font-size:100%;
+}
+
+h1 {
+  font: bold 2.4em Orbitron, Arial, sans-serif;
+  background: url('../img/header-logo.png') no-repeat;
+  display:block;
+  width:65px;
+  height:51px;
+  letter-spacing:1px;
+  padding:11px 0 0 70px;
+  font-size:150%;
+}
+
+.button {
+  @include button;
+  @include rounded_corners;
+  font-size:1.2em;
+  font-family:"Helvetia Neue", sans-serif;
+}
+
+
+#clipAction {
+  width:150px;
+  border:1px solid $gold;
+}
+
+#clipAction:hover {
+  border:1px solid white;
+}

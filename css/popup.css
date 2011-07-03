@@ -1,22 +1,52 @@
+@font-face {
+  font-family: 'Orbitron';
+  src: url("../fonts/orbitron/orbitron-bold.eot");
+  src: url(//:) format("no404"), url("../fonts/orbitron/orbitron-bold.woff") format("woff"), url("../fonts/orbitron/orbitron-bold.ttf") format("truetype"); }
+
 * {
-  margin:0;
-  padding:0;
-}
+  margin: 0;
+  padding: 0; }
 
 body {
-/*  border:1px solid #fea38e;
-*/  width:500px;
-  background:#000000;
-  color:white;
-  padding:5px;
-  font-size:100%;
-}
+  width: 500px;
+  background: #000000;
+  color: white;
+  padding: 5px;
+  font-size: 100%; }
 
 h1 {
-  background: url('../img/header-logo.png') no-repeat;
-  display:block;
-  width:65px;
-  height:51px;
-  padding:6px 0 0 70px;
-  font-size:150%;
-}
+  font: bold 2.4em Orbitron, Arial, sans-serif;
+  background: url("../img/header-logo.png") no-repeat;
+  display: block;
+  width: 65px;
+  height: 51px;
+  letter-spacing: 1px;
+  padding: 11px 0 0 70px;
+  font-size: 150%; }
+
+.button {
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#ffd757), to(#ffaa22));
+  background: -moz-linear-gradient(top, #ffec64, #ffb027);
+  border: 1px solid #FA2;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 5px 10px;
+  display: block;
+  color: #040f00;
+  text-decoration: none;
+  text-align: center;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  font-size: 1.2em;
+  font-family: "Helvetia Neue", sans-serif; }
+
+#clipAction {
+  width: 150px;
+  border: 1px solid #dfb42c; }
+
+#clipAction:hover {
+  border: 1px solid white; }

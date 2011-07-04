@@ -7,6 +7,17 @@
     "popup": "popup.html"
   },
   "permissions": [
-    "http://api.flickr.com/"
+    "tabs",
+    "chrome://favicon/",
+    "http://*/*", 
+    "https://*/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["http://*/*"],
+      "js": ["js/selection.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
   ]
 }

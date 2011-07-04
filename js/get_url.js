@@ -1,7 +1,6 @@
 chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
-    if (request.method == "getSelection")
-      sendResponse({data: window.getSelection().toString()});
+    if (request.method == "getUrl")
+      sendResponse({data: "http://blahblah.com"});
     else
       sendResponse({}); // snub them.
 });
-

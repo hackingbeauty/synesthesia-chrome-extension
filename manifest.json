@@ -10,12 +10,13 @@
     "tabs",
     "chrome://favicon/",
     "http://*/*", 
-    "https://*/*"
+    "https://*/*",
+    "http://*.herokuapp.com/"
   ],
   "content_scripts": [
     {
       "matches": ["http://*/*"],
-      "js": ["js/selection.js"],
+      "js": ["js/selection.js","js/get_url.js"],
       "run_at": "document_start",
       "all_frames": true
     }

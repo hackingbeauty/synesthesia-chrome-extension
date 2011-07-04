@@ -94,13 +94,13 @@ h1 {
   border:1px solid white;
 }
 
-#deleteMeme {
+#cancel {
   border:1px solid $warning;
   background: -webkit-gradient(linear, 0 0, 0 100%, from(#f35859), to(#c23b3c));
   float:left;
 }
 
-#deleteMeme:hover {
+#cancel:hover {
   border:1px solid white;
 }
 

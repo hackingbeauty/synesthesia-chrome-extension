@@ -71,10 +71,10 @@ h1 {
 #createNeuron:hover {
   border: 1px solid white; }
 
-#deleteMeme {
+#cancel {
   border: 1px solid #cc3333;
   background: -webkit-gradient(linear, 0 0, 0 100%, from(#f35859), to(#c23b3c));
   float: left; }
 
-#deleteMeme:hover {
+#cancel:hover {
   border: 1px solid white; }

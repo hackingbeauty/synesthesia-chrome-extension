@@ -5,25 +5,43 @@
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
   <script type="text/javascript" src="js/application.js"></script>
   <script>
-    window.getSelectedText = function() {
+    
+    Chrome = {};
+  
+    Chrome.getSelectedText = function() {
       chrome.tabs.getSelected(null, function(tab) {
         chrome.tabs.sendRequest(tab.id, {method: "getSelection"}, function (response) {
           var text = document.getElementById('text'); 
           text.innerHTML = response.data;
+          Synesthesia.createNeuron()
+        });
+      });
+    }    
+    
+    Chrome.getUrl = function() {
+      chrome.tabs.getUrl(null,function(tab){
+        chrome.tabs.sendRequest(tab.id, {method: "getUrl"}, function (response) {
+          var url = document.getElementById('url');
+          url.value = response.data;
         });
       });
     }
-    getSelectedText();
+    
+    Chrome.getSelectedText();
+    Chrome.getUrl();
   </script>
 </head>
 <body id="body">
     <header>
         <h1>Synesthesia</h1>
     </header>
-    <textarea id="text" class="tinymce"> </textarea>
-    <div id="toolbar">
-        <a id="createNeuron" class="button" href="#">Create Neuron</a>
-        <a id="deleteMeme" class="button" href="#">Delete Meme</a>
-    </div>
+    <form method="post", action="/neurons">
+      <textarea id="text"></textarea>
+      <input id="url" value="http://cnn.com"></input>
+      <div id="toolbar">
+          <a id="createNeuron" class="button" href="#">Create Neuron</a>
+          <a id="cancel" class="button" href="#">Cancel</a>
+      </div>
+    </form>
 </body>
 </html>

@@ -3,27 +3,28 @@
 <head>
   <link rel="stylesheet" type="text/css" href="css/popup.css" />
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-  <script type="text/javascript" src="js/jquery.blockui.js"></script>
-  <script type="text/javascript" src="js/application.js"></script>
   <script>
-    $(function() {
-        window.pasteSelection = function() {
-            chrome.tabs.getSelected(null, function(tab) {
-                chrome.tabs.sendRequest(tab.id, {method: "getSelection"}, function (response) {
-                    var text = document.getElementById('text'); 
-                    text.innerHTML = response.data;
-                });
+
+    window.pasteSelection = function() {
+        chrome.tabs.getSelected(null, function(tab) {
+            chrome.tabs.sendRequest(tab.id, {method: "getSelection"}, function (response) {
+                var text = document.getElementById('text'); 
+                text.innerHTML = response.data;
             });
-        }
-        pasteSelection();
-    });   
+        });
+    }
+    pasteSelection();
+ 
   </script>
 </head>
 <body id="body">
     <header>
         <h1>Synesthesia</h1>
     </header>
-    <textarea id="text"> </textarea>
-    <a id="clipAction" class="button" href="#">Create Neuron</a>
+    <textarea id="text" class="tinymce"> </textarea>
+    <div id="toolbar">
+        <a id="createNeuron" class="button" href="#">Create Neuron</a>
+        <a id="deleteMeme" class="button" href="#">Delete Meme</a>
+    </div>
 </body>
 </html>

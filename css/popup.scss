@@ -11,8 +11,8 @@ $future_light_grey:#2e2e30;
 @mixin button {
   @include rounded_corners;
   background: -webkit-gradient(linear, 0 0, 0 100%, from(#FFD757), to(#FA2));
-  background: -moz-linear-gradient(top, #FFEC64, #FFB027);
-  border: 1px solid #FA2;
+/*  background: -moz-linear-gradient(top, #FFEC64, #FFB027);
+*/  border: 1px solid #FA2;
   font-weight: bold;
   cursor:pointer;
   padding:5px 10px;
@@ -40,11 +40,11 @@ $future_light_grey:#2e2e30;
 }
 
 body {
-  width:500px;
   background:#000000;
   color:white;
-  padding:5px;
+  padding:10px 15px 44px 15px;
   font-size:100%;
+  font-family:"Helvetia Neue", sans-serif;
 }
 
 h1 {
@@ -52,25 +52,57 @@ h1 {
   background: url('../img/header-logo.png') no-repeat;
   display:block;
   width:65px;
-  height:51px;
+  height:40px;
   letter-spacing:1px;
   padding:11px 0 0 70px;
   font-size:150%;
+  margin-bottom:5px;
 }
 
 .button {
   @include button;
   @include rounded_corners;
   font-size:1.2em;
-  font-family:"Helvetia Neue", sans-serif;
 }
 
+.button:hover{
+  border:1px solid white;
+}
 
-#clipAction {
+#text {
+  @include rounded_corners;
+  border:1px solid $gold;
+  width:500px;
+  height:200px;
+  padding:5px;
+  font-size:120%;
+  overflow:auto;
+}
+
+#toolbar {
+  margin-top:6px;
+}
+
+#createNeuron {
+  float:left;
+  margin-right:5px;
   width:150px;
   border:1px solid $gold;
 }
 
-#clipAction:hover {
+#createNeuron:hover {
   border:1px solid white;
 }
+
+#deleteMeme {
+  border:1px solid $warning;
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#f35859), to(#c23b3c));
+  float:left;
+}
+
+#deleteMeme:hover {
+  border:1px solid white;
+}
+
+
+

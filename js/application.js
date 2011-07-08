@@ -1,8 +1,11 @@
 $(function() {
    
   window.Synesthesia = {
+    init:function(){
+      Synesthesia.cancel();
+    },
     createNeuron:function(){ 
-      var url   = $('#url').val();
+      var url   = window.currentUrl;
       var text  = $('#text').val();
       json = {
         'neuron':{
@@ -14,13 +17,13 @@ $(function() {
         $.ajax({
          type: 'post',
          data: json,
-         url: 'http://synesthesia-note.herokuapp.com/neurons',
-         // url: 'http://localhost:3000/neurons',
+         // url: 'http://synesthesia-note.herokuapp.com/neurons',
+         url: 'http://localhost:3000/neurons',
          success: function(res){
-           $('#text').html('successfully stored neuron!');
+           $('#text').html('Neuron successfully created.');
          },
          error: function(res){
-           $('#text').html('boo-hoo!');
+           $('#text').html('Your brain has rejected that meme.');
          }
         });
       });
@@ -32,7 +35,6 @@ $(function() {
     }
   }
   
-  Synesthesia.cancel();
+  Synesthesia.init();
   
-    
 });

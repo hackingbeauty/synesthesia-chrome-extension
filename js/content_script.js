@@ -1,7 +1,7 @@
 chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
-    if (request.method == "getSelection")
+    if (request.method == "getSelection"){
       sendResponse({data: window.getSelection().toString()});
-    else
+    } else {
       sendResponse({}); // snub them.
+    }
 });
-

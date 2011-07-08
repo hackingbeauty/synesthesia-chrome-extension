@@ -5,30 +5,16 @@
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
   <script type="text/javascript" src="js/application.js"></script>
   <script>
-    
-    Chrome = {};
-  
-    Chrome.getSelectedText = function() {
-      chrome.tabs.getSelected(null, function(tab) {
-        chrome.tabs.sendRequest(tab.id, {method: "getSelection"}, function (response) {
-          var text = document.getElementById('text'); 
-          text.innerHTML = response.data;
-          Synesthesia.createNeuron()
-        });
+    chrome.tabs.getSelected(null, function(tab) {
+      chrome.tabs.sendRequest(tab.id, {method: "getSelection"}, function (response) {
+        var text = document.getElementById('text'); 
+        text.innerHTML = response.data;
+        Synesthesia.createNeuron()
       });
-    }    
-    
-    Chrome.getUrl = function() {
-      chrome.tabs.getUrl(null,function(tab){
-        chrome.tabs.sendRequest(tab.id, {method: "getUrl"}, function (response) {
-          var url = document.getElementById('url');
-          url.value = response.data;
-        });
-      });
-    }
-    
-    Chrome.getSelectedText();
-    Chrome.getUrl();
+    });
+    chrome.tabs.getSelected(null, function(tab) {
+      window.currentUrl = tab.url;
+    });
   </script>
 </head>
 <body id="body">
@@ -37,7 +23,6 @@
     </header>
     <form method="post", action="/neurons">
       <textarea id="text"></textarea>
-      <input id="url" value="http://cnn.com"></input>
       <div id="toolbar">
           <a id="createNeuron" class="button" href="#">Create Neuron</a>
           <a id="cancel" class="button" href="#">Cancel</a>

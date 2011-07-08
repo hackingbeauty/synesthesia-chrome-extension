@@ -78,3 +78,6 @@ h1 {
 
 #cancel:hover {
   border: 1px solid white; }
+
+#url {
+  visibility: hidden; }

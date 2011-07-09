@@ -59,6 +59,10 @@ h1 {
   margin-bottom:5px;
 }
 
+.hide {
+  display:none;
+}
+
 .button {
   @include button;
   @include rounded_corners;
@@ -108,5 +112,10 @@ h1 {
   visibility:hidden;
 }
 
+/* Login Form */
+
+#login-form{
+  width:500px;
+}
 
 

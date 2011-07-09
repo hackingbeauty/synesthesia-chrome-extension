@@ -21,12 +21,18 @@
     <header>
         <h1>Synesthesia</h1>
     </header>
-    <form method="post", action="/neurons">
+    <form class="hide" id="main-form" method="post", action="/neurons">
       <textarea id="text"></textarea>
       <div id="toolbar">
           <a id="createNeuron" class="button" href="#">Create Neuron</a>
           <a id="cancel" class="button" href="#">Cancel</a>
       </div>
+    </form>
+    <form class="hide" id="login-form" method="post", action="">
+      <label>Email:</label>
+      <input name="email" id="email" />
+      <label>Password:</label>
+      <input name="password" id="password" />
     </form>
 </body>
 </html>

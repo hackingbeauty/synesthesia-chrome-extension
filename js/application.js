@@ -50,7 +50,12 @@ $(function() {
       $('#cancel').click(function(){
         window.close();
       });
-    }
+    }// ,
+    //     ajaxListen:function(){
+    //         .live('ajaxSucess',function(){
+    //          
+    //       });
+    //     }
   }
   
   Synesthesia.init();

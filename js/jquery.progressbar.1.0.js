@@ -6,9 +6,11 @@
     var options = $.extend(defaults,options);
     return this.each(function(){
       var progressDiv = '<div class="progressOuterDiv"'+
-      'style="width:200px;height:20px;border:1px solid black;position:relative;z-index:1000">' +
+      'style="width:200px;height:20px;border:1px solid white;' +
+      'position:relative;z-index:1000;">' +
       '<div class="progressInnerDiv"' +
-      'style="height:20px;background:red;width:0%;"' +
+      'style="height:20px;width:0%;' +
+      'background: -webkit-gradient(linear, 0 0, 0 100%, from(#FFD757), to(#FA2));">'
       '</div>' +
       '</div>';
       $(this).append(progressDiv);

@@ -34,7 +34,7 @@ $(function() {
         }
       }
       $('#createNeuron').click(function(){
-        $('body').progressBar();
+        $('#progress').progressBar();
         $('#text').css('border','1px solid red');
         // rgba(0, 0, 0, 0.85);
         $.ajax({

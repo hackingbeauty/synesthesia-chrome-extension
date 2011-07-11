@@ -115,6 +115,15 @@ h1 {
   visibility:hidden;
 }
 
+#progress {
+  @include rounded_corners;
+  position:absolute;
+  top:24px;
+  right:40px;
+  width:200px;
+  height:20px;
+}
+
 /* Login Form */
 
 #login-form {

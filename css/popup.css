@@ -88,6 +88,16 @@ h1 {
 #url {
   visibility: hidden; }
 
+#progress {
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  position: absolute;
+  top: 24px;
+  right: 40px;
+  width: 200px;
+  height: 20px; }
+
 /* Login Form */
 #login-form {
   top: 20px;

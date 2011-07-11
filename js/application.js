@@ -13,8 +13,10 @@ $(function() {
        success: function(res){
          if(!res.logged_in == true){
            $('#login-form').removeClass("hide");
+           $('#email').focus();
          } else {
            $('#main-form').removeClass("hide");
+           $('#text').focus();
          }
        },
        error: function(res){
@@ -32,6 +34,9 @@ $(function() {
         }
       }
       $('#createNeuron').click(function(){
+        $('body').progressBar();
+        $('#text').css('border','1px solid red');
+        // rgba(0, 0, 0, 0.85);
         $.ajax({
          type: 'post',
          data: json,

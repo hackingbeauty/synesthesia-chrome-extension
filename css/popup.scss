@@ -76,6 +76,8 @@ h1 {
 
 #text {
   @include rounded_corners;
+  position:relative;
+  z-index:0;
   border:1px solid $gold;
   width:500px;
   height:200px;

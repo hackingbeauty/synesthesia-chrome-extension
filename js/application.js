@@ -3,15 +3,15 @@ $(function() {
   window.Synesthesia = {
     init:function(){
       Synesthesia.cancel();
-      Synesthesia.loggedOut();
+      Synesthesia.isloggedOut();
     },
-    loggedOut:function(){
+    isloggedOut:function(){
       $.ajax({
        type: 'get',
        // url: 'http://synesthesia-note.herokuapp.com/evernote/is_logged_in.json',
        url: 'http://localhost:3000/evernote/is_logged_in.json',
        success: function(res){
-         if(!res.logged_in == true){
+         if(!res.logged_in == true){//if NOT logged in, show login form
            $('#login-form').removeClass("hide");
            $('#email').focus();
          } else {
@@ -25,17 +25,16 @@ $(function() {
       });
     },
     createNeuron:function(){ 
-      var url   = window.currentUrl;
-      var text  = $('#text').val();
-      json = {
-        'neuron':{
-          'url':url,
-          'text':text
-        }
-      }
       $('#createNeuron').click(function(){
+        var url   = window.currentUrl;
+        var text  = $('#text').val();
+        json = {
+          'neuron':{
+            'url':url,
+            'text':text
+          }
+        }
         $('#progress').progressBar();
-        $('#text').css('border','1px solid red');
         // rgba(0, 0, 0, 0.85);
         $.ajax({
          type: 'post',
@@ -43,7 +42,7 @@ $(function() {
          // url: 'http://synesthesia-note.herokuapp.com/neurons',
          url: 'http://localhost:3000/neurons',
          success: function(res){
-           $('#text').html('Neuron successfully created.');
+           Synesthesia.selectImages(res);
          },
          error: function(res){
            $('#text').html('Your brain has rejected that meme.');
@@ -51,16 +50,20 @@ $(function() {
         });
       });
     },
+    selectImages:function(res){
+      $('#main-form').addClass('hide');
+      $('#image-selection').removeClass('hide');
+      var jsonResponse = $.parseJSON(res); 
+      $.each(jsonResponse, function(key, value) {
+        var innerJSON = JSON.parse(jsonResponse[key]);         
+        $('#images').append('<li><img src="http://localhost:3000'+ innerJSON.url +'" /></li>');
+       });
+    },
     cancel:function(){
       $('#cancel').click(function(){
         window.close();
       });
-    }// ,
-    //     ajaxListen:function(){
-    //         .live('ajaxSucess',function(){
-    //          
-    //       });
-    //     }
+    }
   }
   
   Synesthesia.init();

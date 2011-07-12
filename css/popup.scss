@@ -45,6 +45,7 @@ body {
   padding:10px 15px 44px 15px;
   font-size:100%;
   font-family:"Helvetia Neue", sans-serif;
+  width:500px;
 }
 
 h1 {
@@ -79,7 +80,7 @@ h1 {
   position:relative;
   z-index:0;
   border:1px solid $gold;
-  width:500px;
+  width:98%;
   height:200px;
   padding:5px;
   font-size:120%;
@@ -159,6 +160,15 @@ h1 {
   width:100px !important;
   height:35px !important;
   font-size:110% !important;
+}
+
+.photo {
+  list-style-type:none;
+  border:1px solid red;
+  width:100px;
+  height:100px;
+  overflow:hidden;
+  float:left;
 }
 
 

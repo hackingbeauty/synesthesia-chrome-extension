@@ -33,6 +33,7 @@
              clearInterval(progressTime);
            }
          },10);
+         $(this).fadeOut('slow');
       });
     });
   };

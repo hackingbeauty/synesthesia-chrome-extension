@@ -13,7 +13,6 @@ $(function() {
        success: function(res){
          if(!res.logged_in == true){//if NOT logged in, show login form
            $('#login-form').removeClass("hide");
-           $('#email').focus();
          } else {
            $('#main-form').removeClass("hide");
            $('#text').focus();
@@ -35,7 +34,6 @@ $(function() {
           }
         }
         $('#progress').progressBar();
-        // rgba(0, 0, 0, 0.85);
         $.ajax({
          type: 'post',
          data: json,

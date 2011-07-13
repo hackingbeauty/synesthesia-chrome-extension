@@ -31,9 +31,9 @@
       <div class="form-field">  
         <button id="login-button" class="button">Login</button>
       </div>
-      <div class="form-field">  
-        <button href="https://sandbox.evernote.com/Registration.action" id="create-button" class="button">Create Account</button>
-      </div>
+      <p>
+        <a id="create-link" href="https://www.evernote.com/Registration.action">Create an Evernote account.</a>
+      </p>
     </div>
     <div class="hide" id="image-selection">
       <p>Neuron successfully created - Select an image for your neuron</p>
@@ -45,10 +45,10 @@
     <script>
       function loginBttnLinks(){
         $('#login-button').click(function(){
-          chrome.tabs.create({url: 'https://sandbox.evernote.com/Login.action?targetUrl=%2FOAuth.action%3Foauth_callback%3Dhttp%253A%252F%252Flocalhost%253A3000%252Fevernote%252Flogin%26oauth_token%3Dprovoost.131253585BB.687474703A2F2F6C6F63616C686F73743A333030302F657665726E6F74652F6C6F67696E.826F12A287DC165A1AB00458C16FB801'});
+          chrome.tabs.create({url: 'http://synesthesia-note.herokuapp.com/evernote/login'});
           window.close();
         });
-        $('#create-button').click(function(){
+        $('#create-link').click(function(){
           chrome.tabs.create({url: 'https://sandbox.evernote.com/Registration.action' });
           window.close();
         });

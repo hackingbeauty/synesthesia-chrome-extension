@@ -39,6 +39,8 @@ $future_light_grey:#2e2e30;
   padding:0;
 }
 
+a {color:$gold;}
+
 body {
   background:#000000;
   color:white;
@@ -155,6 +157,10 @@ h1 {
   height:20px;
   font-size:100%;
 }  
+
+#login-form p {
+  margin-top:8px;
+}
 
 #login-button {
   font-size:110% !important;

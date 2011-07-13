@@ -7,6 +7,9 @@
   margin: 0;
   padding: 0; }
 
+a {
+  color: #dfb42c; }
+
 body {
   background: #000000;
   color: white;
@@ -124,6 +127,9 @@ h1 {
   width: 225px;
   height: 20px;
   font-size: 100%; }
+
+#login-form p {
+  margin-top: 8px; }
 
 #login-button {
   font-size: 110% !important; }

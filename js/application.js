@@ -8,8 +8,7 @@ $(function() {
     isloggedOut:function(){
       $.ajax({
        type: 'get',
-       // url: 'http://synesthesia-note.herokuapp.com/evernote/is_logged_in.json',
-       url: 'http://localhost:3000/evernote/is_logged_in.json',
+       url: 'http://synesthesia-note.herokuapp.com/evernote/is_logged_in.json',
        success: function(res){
          if(!res.logged_in == true){//if NOT logged in, show login form
            $('#login-form').removeClass("hide");
@@ -37,8 +36,7 @@ $(function() {
         $.ajax({
          type: 'post',
          data: json,
-         // url: 'http://synesthesia-note.herokuapp.com/neurons',
-         url: 'http://localhost:3000/neurons',
+         url: 'http://synesthesia-note.herokuapp.com/neurons',
          success: function(res){
            Synesthesia.selectImages(res);
          },

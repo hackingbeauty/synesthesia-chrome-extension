@@ -35,7 +35,7 @@ $(function() {
         $('#progress').progressBar();
         $.ajax({
          type: 'post',
-         data: json,
+         data: json,   
          url: 'http://synesthesia-note.herokuapp.com/neurons',
          success: function(res){
            Synesthesia.selectImages(res);
@@ -49,10 +49,10 @@ $(function() {
     selectImages:function(res){
       $('#main-form').addClass('hide');
       $('#image-selection').removeClass('hide');
-      var jsonResponse = $.parseJSON(res); 
+      var jsonResponse = $.parseJSON(res);     
       $.each(jsonResponse, function(key, value) {
-        var innerJSON = JSON.parse(jsonResponse[key]);         
-        $('#images').append('<li><img src="http://localhost:3000'+ innerJSON.url +'" /></li>');
+        var innerJSON = JSON.parse(jsonResponse[key]);
+        $('#images').append('<li><img src="'+ innerJSON.url +'" /></li>');        
        });
     },
     cancel:function(){

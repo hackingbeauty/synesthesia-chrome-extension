@@ -1,6 +1,8 @@
 $(function() {
    
   window.Synesthesia = {
+    productionUrl:'http://synesthesia-note.herokuapp.com/',
+    // productionUrl:'http://localhost:3000/',
     init:function(){
       Synesthesia.cancel();
       Synesthesia.isloggedOut();
@@ -8,7 +10,7 @@ $(function() {
     isloggedOut:function(){
       $.ajax({
        type: 'get',
-       url: 'http://synesthesia-note.herokuapp.com/evernote/is_logged_in.json',
+       url: Synesthesia.productionUrl + 'evernote/is_logged_in.json',
        success: function(res){
          if(!res.logged_in == true){//if NOT logged in, show login form
            $('#login-form').removeClass("hide");
@@ -36,10 +38,9 @@ $(function() {
         $.ajax({
          type: 'post',
          data: json,   
-         url: 'http://synesthesia-note.herokuapp.com/neurons',
+         url: Synesthesia.productionUrl + 'neurons',
          success: function(res){
-           Synesthesia.displayImages(res);
-           Synesthesia.attachSelectImgEvent("images");
+           Synesthesia.displayCandidateImages(res);
          },
          error: function(res){
            $('#text').html('Your brain has rejected that meme.');
@@ -47,18 +48,36 @@ $(function() {
         });
       });
     },
-    displayImages:function(res){
+    displayCandidateImages:function(res){
       $('#main-form').addClass('hide');
       $('#image-selection').removeClass('hide');
-      var jsonResponse = $.parseJSON(res);     
-      $.each(jsonResponse, function(key, value) {
-        var innerJSON = JSON.parse(jsonResponse[key]);
-        $('#images').append('<li class="img"><img src="'+ innerJSON.url +'" /></li>');        
-       });
+    
+      var jsonResponse = $.parseJSON(res); 
+      var neuronId = jsonResponse.id;   
+      var candidatePics = jsonResponse.candidate_pictures;
+      
+      $.each(candidatePics, function(key, value) {
+         var photo = JSON.parse(candidatePics[key]);
+         $('#images').append('<li id="'+ photo.picture_id +'" class="img"><img src="'+ photo.url +'" /></li>');        
+      });
+      
+      Synesthesia.sendSelectedImage(neuronId);
     },
-    attachSelectImgEvent:function(parentElem){
-      $(parentElem).click(function(){
-        //send image here
+    sendSelectedImage:function(neuronId){
+      $('#images li.img').click(function(){
+        $.ajax({
+           type: 'post',
+           dataType: 'json',
+           data: { '_method': 'put', neuron: {picture_id: $(this).attr('id')} },   
+           url: Synesthesia.productionUrl + 'neurons' + '/' + neuronId,
+           success: function(res){
+             $('#images').append('<li>success!</li>');
+           },
+           error: function(res){
+             $('#images').append('<li>error!</li>');
+             $('#images').append('<li>' + res.responseText + '</li>');
+           }
+        });
       });
     },
     cancel:function(){

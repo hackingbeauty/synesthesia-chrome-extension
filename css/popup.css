@@ -10,6 +10,12 @@
 a {
   color: #dfb42c; }
 
+a:hover {
+  color: white; }
+
+li {
+  list-style-type: none; }
+
 body {
   background: #000000;
   color: white;
@@ -141,3 +147,22 @@ h1 {
   height: 100px;
   overflow: hidden;
   float: left; }
+
+#image-selection {
+  float: left;
+  padding: 20px 0; }
+
+#image-selection p {
+  margin-bottom: 20px; }
+
+#image-selection li {
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  margin-right: 20px;
+  float: left;
+  border: 2px solid #dfb42c;
+  cursor: pointer; }
+
+#image-selection li:hover {
+  border: 2px solid white; }

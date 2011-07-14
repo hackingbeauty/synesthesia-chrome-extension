@@ -38,7 +38,8 @@ $(function() {
          data: json,   
          url: 'http://synesthesia-note.herokuapp.com/neurons',
          success: function(res){
-           Synesthesia.selectImages(res);
+           Synesthesia.displayImages(res);
+           Synesthesia.attachSelectImgEvent("images");
          },
          error: function(res){
            $('#text').html('Your brain has rejected that meme.');
@@ -46,14 +47,19 @@ $(function() {
         });
       });
     },
-    selectImages:function(res){
+    displayImages:function(res){
       $('#main-form').addClass('hide');
       $('#image-selection').removeClass('hide');
       var jsonResponse = $.parseJSON(res);     
       $.each(jsonResponse, function(key, value) {
         var innerJSON = JSON.parse(jsonResponse[key]);
-        $('#images').append('<li><img src="'+ innerJSON.url +'" /></li>');        
+        $('#images').append('<li class="img"><img src="'+ innerJSON.url +'" /></li>');        
        });
+    },
+    attachSelectImgEvent:function(parentElem){
+      $(parentElem).click(function(){
+        //send image here
+      });
     },
     cancel:function(){
       $('#cancel').click(function(){

@@ -50,10 +50,14 @@ li {
 body {
   background:#000000;
   color:white;
-  padding:10px 15px 44px 15px;
+  padding:10px 15px 54px 15px;
   font-size:100%;
   font-family:"Helvetia Neue", sans-serif;
   width:500px;
+}
+
+header {
+  margin-top:7px;
 }
 
 h1 {
@@ -65,7 +69,7 @@ h1 {
   letter-spacing:1px;
   padding:11px 0 0 70px;
   font-size:150%;
-  margin-bottom:5px;
+  margin-bottom:10px;
 }
 
 .hide {
@@ -127,7 +131,7 @@ h1 {
 #progress {
   @include rounded_corners;
   position:absolute;
-  top:24px;
+  top:30px;
   right:40px;
   width:200px;
   height:20px;
@@ -200,5 +204,11 @@ h1 {
 
 #image-selection li:hover {
   border:2px solid white;
+}
+
+#my-brain {
+  position:absolute;
+  top:5px;
+  right:15px;
 }
 

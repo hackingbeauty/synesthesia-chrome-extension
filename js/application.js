@@ -26,25 +26,20 @@ $(function() {
     },
     createNeuron:function(){ 
       $('#createNeuron').click(function(){
-        var url   = window.currentUrl;
-        var text  = $('#text').val();
-        json = {
-          'neuron':{
-            'url':url,
-            'text':text
-          }
-        }
+        var theUrl   = window.currentUrl;
+        var theText  = $('#text').val();
         $('#progress').progressBar();
         $.ajax({
-         type: 'post',
-         data: json,   
-         url: Synesthesia.productionUrl + 'neurons',
-         success: function(res){
-           Synesthesia.displayCandidateImages(res);
-         },
-         error: function(res){
-           $('#text').html('Your brain has rejected that meme.');
-         }
+          type: 'post',
+          // dataType: 'json',  
+          data: {neuron: {url: theUrl, text: theText}}, 
+          url: Synesthesia.productionUrl + 'neurons',
+          success: function(res){
+            Synesthesia.displayCandidateImages(res);
+          },
+          error: function(jqXHR, textStatus, errorThrown){
+            $('#text').html('Your brain has rejected that meme.');
+          }
         });
       });
     },
@@ -67,15 +62,14 @@ $(function() {
       $('#images li.img').click(function(){
         $.ajax({
            type: 'post',
-           dataType: 'json',
+           // dataType: 'json',
            data: { '_method': 'put', neuron: {picture_id: $(this).attr('id')} },   
            url: Synesthesia.productionUrl + 'neurons' + '/' + neuronId,
            success: function(res){
              $('#images').append('<li>success!</li>');
            },
            error: function(res){
-             $('#images').append('<li>error!</li>');
-             $('#images').append('<li>' + res.responseText + '</li>');
+              $('#images').append('<li>Shoot! I was not able to select that picture.</li>');
            }
         });
       });

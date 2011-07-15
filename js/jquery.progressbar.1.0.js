@@ -35,6 +35,17 @@
          },10);
          $(this).fadeOut('slow');
       });
+      $(this).ajaxError(function(){
+        $('.progressInnerDiv').css('background','-webkit-gradient(linear, 0 0, 0 100%, from(#f35859), to(#c23b3c)) !important;');
+         var progressTime = setInterval(function(){
+           currentProgress += 1;
+           if(currentProgress <= '100'){
+             $('.progressInnerDiv').css('width', currentProgress + '%');
+           }else{
+             clearInterval(progressTime);
+           }
+         },10);
+      });
     });
   };
   

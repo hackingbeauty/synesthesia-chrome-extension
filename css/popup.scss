@@ -196,19 +196,28 @@ h1 {
 
 #image-selection li {
   @include rounded_corners;
+  cursor:pointer;
   margin-right:20px;
   float:left;
-  border:2px solid $gold;
+  border:2px solid white;
   cursor:pointer;
 }
 
 #image-selection li:hover {
-  border:2px solid white;
+  border:2px solid $gold;
+}
+
+#image-selection img {
+  cursor:pointer;
 }
 
 #my-brain {
   position:absolute;
   top:5px;
   right:15px;
+}
+
+li.img {
+  cursor:pointer;
 }
 

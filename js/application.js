@@ -1,8 +1,8 @@
 $(function() {
    
   window.Synesthesia = {
-    // productionUrl:'http://synesthesia-note.herokuapp.com/',
-    productionUrl:'http://localhost:3000/',
+    productionUrl:'http://synesthesia-note.herokuapp.com/',
+    // productionUrl:'http://localhost:3000/',
     init:function(){
       Synesthesia.cancel();
       Synesthesia.isloggedOut();
@@ -35,10 +35,11 @@ $(function() {
           data: {neuron: {url: theUrl, text: theText}}, 
           url: Synesthesia.productionUrl + 'neurons',
           success: function(res){
+            $('#notification').html('<p class="success">Neuron successfully created - Select an image for your neuron.</p>');            
             Synesthesia.displayCandidateImages(res);
           },
           error: function(jqXHR, textStatus, errorThrown){
-            $('#text').html('Your brain has rejected that meme.');
+            $('#notification').html('<p class="error">Your brain has rejected that meme.</p>');
           }
         });
       });
@@ -67,12 +68,12 @@ $(function() {
            data: { '_method': 'put', neuron: {picture_id: $(this).attr('id')} },   
            url: Synesthesia.productionUrl + 'neurons' + '/' + neuronId,
            success: function(res){
-             $('#success-msg').html();
-             $('#images').append('<p id="success-msg">Successfully selected photo</p>');
+             $('#notification').html();
+             $('#notification').html('<p class="success" id="success-msg">Successfully selected photo</p>');
            },
-           error: function(res){
-              $('#error-msg').html();
-              $('#images').append('<p id="error-msg">Shoot! I was not able to select that picture.</p>');
+           error: function(jqXHR, textStatus, errorThrown){
+             $('#notification').html();
+             $('#notification').html('<p class="error" id="error-msg">Shoot! I was not able to select that picture.</p>');
            }
         });
       });

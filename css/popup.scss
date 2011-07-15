@@ -2,7 +2,7 @@ $gold: #dfb42c;
 $dark_black: #040f00;
 $light_grey: #b1b0b0;
 $dark_grey: #5E5E5E;
-$warning: #cc3333;
+$error: #cc3333;
 $success: #33cc33;
 $future_orange:#f96623;
 $future_dark_grey:#191919;
@@ -76,6 +76,14 @@ h1 {
   display:none;
 }
 
+.success {
+  color:$success;
+}
+
+.error {
+  color:$error;
+}
+
 .button {
   @include button;
   @include rounded_corners;
@@ -115,7 +123,7 @@ h1 {
 }
 
 #cancel {
-  border:1px solid $warning;
+  border:1px solid $error;
   background: -webkit-gradient(linear, 0 0, 0 100%, from(#f35859), to(#c23b3c));
   float:left;
 }

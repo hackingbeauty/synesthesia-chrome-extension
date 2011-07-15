@@ -35,7 +35,7 @@ $(function() {
           data: {neuron: {url: theUrl, text: theText}}, 
           url: Synesthesia.productionUrl + 'neurons',
           success: function(res){
-            $('#notification').html('<p class="success">Neuron successfully created - Select an image for your neuron.</p>');            
+            $('#notification').html('<p><span class="success">Neuron successfully created</span> - Select an image for your neuron.</p>');            
             Synesthesia.displayCandidateImages(res);
           },
           error: function(jqXHR, textStatus, errorThrown){
@@ -69,11 +69,11 @@ $(function() {
            url: Synesthesia.productionUrl + 'neurons' + '/' + neuronId,
            success: function(res){
              $('#notification').html();
-             $('#notification').html('<p class="success" id="success-msg">Successfully selected photo</p>');
+             $('#notification').html('<p class="success" id="success-msg">Successfully selected image</p>');
            },
            error: function(jqXHR, textStatus, errorThrown){
              $('#notification').html();
-             $('#notification').html('<p class="error" id="error-msg">Shoot! I was not able to select that picture.</p>');
+             $('#notification').html('<p id="error-msg"><span class="error">Shoot!</span> Try selecting another image.</p>');
            }
         });
       });

@@ -1,13 +1,13 @@
 $(function() {
    
   window.Synesthesia = {
-    productionUrl:'http://synesthesia-note.herokuapp.com/',
+    productionUrl:'http://glowing-dawn-189.heroku.com/',
     // productionUrl:'http://localhost:3000/',
     init:function(){
       Synesthesia.cancel();
-      Synesthesia.isloggedOut();
+      Synesthesia.isloggedIn();
     },
-    isloggedOut:function(){
+    isloggedIn:function(){
       $.ajax({
        type: 'get',
        url: Synesthesia.productionUrl + 'evernote/is_logged_in.json',

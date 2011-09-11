@@ -18,7 +18,7 @@
 <body id="body">
     <header>
         <h1>Synesthesia</h1>
-        <a id="my-brain" href="http://synesthesia-note.herokuapp.com/">My Brain</a>
+        <a id="my-brain" href="http://glowing-dawn-189.heroku.com/">My Brain</a>
     </header>
     <span id="progress"></span>
     <div id="notification"></div>
@@ -46,7 +46,7 @@
     <script>
       function extensionBttnLinks(){
         $('#login-button').click(function(){
-          chrome.tabs.create({url: 'http://synesthesia-note.herokuapp.com/evernote/login'});
+          chrome.tabs.create({url: 'http://glowing-dawn-189.heroku.com/evernote/login'});
           window.close();
         });
         $('#create-link').click(function(){
@@ -54,7 +54,7 @@
           window.close();
         });
         $('#my-brain').click(function(){
-          chrome.tabs.create({url: 'http://synesthesia-note.herokuapp.com/' });
+          chrome.tabs.create({url: 'http://glowing-dawn-189.heroku.com/' });
         });
       }
       extensionBttnLinks();
